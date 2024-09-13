@@ -17,7 +17,7 @@ public class KafkaConsumerConfig {
 
     @Bean
     public ConsumerFactory<String, KafkaMessege> consumerFactory() {
-        Map<String, Object> configProps = new HashMap<>();
+        Map<String, Object> configProps = new HashMap<>(); // to samo co w KafkaConfig, zasadniczo wszędzie
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);

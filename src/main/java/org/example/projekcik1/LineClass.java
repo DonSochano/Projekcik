@@ -15,16 +15,16 @@ public class LineClass {
     private Long fileId;
     private String Name;
     private String lastName;
-    private Integer Age;
+    private Integer Age; // pola z małej kurwa ! WSZĘDZIE !!!!!!!!!!!
     private Double Salary;
     private String Town;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long LineID;
+    private Long LineID; // ID zawsze na górze !!!!!!!!!!!!!!!! i z małej !!!!!!!11
 
 
 
-public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, int Age, Double Salary, String Town) {
+public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, int Age, Double Salary, String Town) { // nie uzywane wiec po co ?
     this.LineNumber = LineNumber;
     this.fileId = fileId;
     this.Name = Name;
@@ -33,5 +33,5 @@ public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, 
     this.Salary = Salary;
     this.Town = Town;
 }
-public LineClass() {}
+public LineClass() {} // noArgsConstructor
 }

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProducer {
 
-
+    // o a tu sie dało zrobić git bez autosrajed
     private final KafkaTemplate<String, KafkaMessege> kafkaTemplate;
 
-    private final String topic = "fileLineTopic";
+    private final String topic = "fileLineTopic"; // alt+ enter i ci powie co z tym zrobić
 
     public void sendMessage(KafkaMessege message) {
         kafkaTemplate.send(topic,message);

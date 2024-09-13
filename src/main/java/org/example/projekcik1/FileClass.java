@@ -13,8 +13,9 @@ import java.time.LocalDate;
 public class FileClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long id; // jak getter i setter to to powinno byc raczej prywatne, tak jak i wszystkie pola tej klasy
     String fileName;
+    // entery pomiedzy polami !
     LocalDate detectionTime;
     Long fileSize;
 
@@ -23,11 +24,11 @@ public FileClass(String fileName, LocalDate detectionTime, Long fileSize) {
     this.detectionTime = detectionTime;
     this.fileSize = fileSize;
 }
-    public FileClass(LocalDate detectionTime, Long fileSize) {
+    public FileClass(LocalDate detectionTime, Long fileSize) { // nie uzywany konstruktor ? po co
         this.fileName = fileName;
         this.detectionTime = detectionTime;
     }
 
-    public FileClass() {}
+    public FileClass() {} // adnotacja NoArgsConstruktor i to do smieci
 
 }

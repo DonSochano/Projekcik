@@ -13,7 +13,9 @@ public class KafkaMessege{
     private Integer Age;
     private Double salary;
     private String town;
-    public KafkaMessege(){}
+    public KafkaMessege(){} // @NoArgsConstructor
+
+    //allargsconstructor
     public KafkaMessege(Long id, Integer lineNumber, String name, String lastName, Integer Age, Double salary, String town){
         this.id = id;
         this.lineNumber = lineNumber;
