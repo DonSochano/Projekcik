@@ -21,7 +21,7 @@ public class KafkaConsumer {
         logger.info("Odebrano wiadomość: ID: {}, linenumber: {}, name: {}, lastname: {}, age: {}, salary: {}, town: {}",
                 message.getId(), message.getLineNumber(), message.getName(), message.getLastName(), message.getAge(), message.getSalary(), message.getTown());
         LineClass newLine = new LineClass();
-        newLine.setLineID(message.getId() + message.getLineNumber() + message.getAge());
+        newLine.setLineID(message.getId() + message.getLineNumber() + message.getAge()+ Double.doubleToLongBits(message.getSalary()));
         newLine.setFileId(message.getId());
         newLine.setLineNumber(message.getLineNumber());
         newLine.setName(message.getName());
@@ -29,7 +29,7 @@ public class KafkaConsumer {
         newLine.setAge(message.getAge());
         newLine.setSalary(message.getSalary());
         newLine.setTown(message.getTown());
-        //tu nic nie zwraca ale tez kompozycyjnie łątwiej - ustawiamy nad enterem zapisujemy pod
+
         textRepository.save(newLine);
     }
 }
