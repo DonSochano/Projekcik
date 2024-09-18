@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FileRepository extends JpaRepository<FileClass, Long> {
-     FileClass fileName(String fileName); // wyjebać public
+     FileClass fileName(String fileName);
 
 }

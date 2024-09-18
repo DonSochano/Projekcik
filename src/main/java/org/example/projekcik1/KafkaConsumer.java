@@ -16,7 +16,7 @@ public class KafkaConsumer {
     private final FileRepository fileRepository;
 
     @KafkaListener(topics = "fileLineTopic", groupId = "group_id")
-    public void consume(KafkaMessege message) {
+    public void consume(KafkaMessage message) {
 
         logger.info("Odebrano wiadomość: ID: {}, linenumber: {}, name: {}, lastname: {}, age: {}, salary: {}, town: {}",
                 message.getId(), message.getLineNumber(), message.getName(), message.getLastName(), message.getAge(), message.getSalary(), message.getTown());

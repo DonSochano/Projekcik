@@ -13,7 +13,7 @@ import lombok.Setter;
 public class LineClass {
 
     @Id
-    private Long LineID;
+    private Long lineID;
     private Integer lineNumber;
     private Long fileId;
     private String name;
@@ -22,14 +22,4 @@ public class LineClass {
     private Double salary;
     private String town;
 
-
-    public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, int Age, Double Salary, String Town) { // nie uzywane wiec po co ?
-        this.lineNumber = LineNumber;
-        this.fileId = fileId;
-        this.name = Name;
-        this.lastName = lastName;
-        this.age = Age;
-        this.salary = Salary;
-        this.town = Town;
-    }
 }

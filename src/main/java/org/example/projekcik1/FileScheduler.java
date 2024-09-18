@@ -11,11 +11,10 @@ import java.time.LocalDate;
 @Component
 public class FileScheduler {
 
+    public static final String eventMessage = "MoveFromNew";
 
     private final FileRepository entityRepository;
     private final EventProducer eventProducer;
-
-    public static final String eventMessage = "MoveFromNew";
 
     @Scheduled(fixedRate = 10000)
     public void scheduler() {

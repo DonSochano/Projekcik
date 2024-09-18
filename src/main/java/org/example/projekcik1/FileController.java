@@ -1,5 +1,6 @@
 package org.example.projekcik1;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,14 +9,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
+
 @RestController
+@RequiredArgsConstructor
 public class FileController {
-    @Autowired // ...
-    private FileProcessor fileProcessor;
-    @Autowired
-    private FileRepository entityRepository;
-    @Autowired
-    private FileTextRepository textRepository;
+
+    private final FileProcessor fileProcessor;
+    private final FileRepository entityRepository;
+    private final FileTextRepository textRepository;
 
     @PostMapping("/test")
     public String uploadFile(@RequestParam("files") MultipartFile[] files) throws IOException { // endopoint nie może rzucac błedu, poniżej przyjład jak poprawnie zrobić
@@ -24,7 +25,6 @@ public class FileController {
         } // nazwa metody do zmiany, bardziej saveFile lub coś
         return "";
     }
-    // entery !
 
     @PostMapping("poprawnyTest")
     public ResponseEntity<String> uploadFilePoprawnie(@RequestParam("file") MultipartFile file) {

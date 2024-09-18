@@ -2,19 +2,20 @@ package org.example.projekcik1;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
-@RequiredArgsConstructor
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class KafkaProducer {
 
-    private final KafkaTemplate<String, KafkaMessege> kafkaTemplate;
+    private final KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
-    public void sendLineInfoMessage(KafkaMessege message) {
-        String topic = "fileLineTopic";
-        kafkaTemplate.send(topic, message);
-        System.out.println("Message sent: " + message.getId());
+    public void sendLineInfoMessage(KafkaMessage message) {
+        kafkaTemplate.send("fileLineTopic", message);
+
+        log.info("Message sent: {}", message.getId());
     }
 
 

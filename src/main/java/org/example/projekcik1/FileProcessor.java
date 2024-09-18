@@ -21,8 +21,7 @@ public class FileProcessor {
     private final FileRepository fileRepository;
     private final EventProducer eventProducer;
 
-
-    public String newFile(MultipartFile file) throws IOException { // bez catcha, oraz trzeba zrobić to tak aby ten Bean nie przechowywał usingFile, FileRepository bo ten serwis jest singletonowy i moze byc uzywany w róznych miejscach, wiec jeden uzytkownik tego seriwsu przypisze jedne plik, a inny uzytkownik zaraz go nadpisze, on nie moze przechowywac pliku !
+    public String newFile(MultipartFile file) throws IOException {
 
         File newFile = new File("src/main/resources/new/" + file.getOriginalFilename());
         try (FileOutputStream fos = new FileOutputStream(newFile)) {
@@ -50,7 +49,7 @@ public class FileProcessor {
                 System.out.println("Nazwa: " + file.getName());
                 longID = Long.parseLong(numberString);
                 System.out.println("Pole 1: " + fields[0]);
-                kafkaProducerService.sendLineInfoMessage(new KafkaMessege(longID, lineNumber, fields[0], fields[1], Integer.parseInt(fields[2]), Double.parseDouble(fields[3]), fields[4]));
+                kafkaProducerService.sendLineInfoMessage(new KafkaMessage(longID, lineNumber, fields[0], fields[1], Integer.parseInt(fields[2]), Double.parseDouble(fields[3]), fields[4]));
             }
             Integer linesAmount = lineNumber;
             lineNumber = 0;

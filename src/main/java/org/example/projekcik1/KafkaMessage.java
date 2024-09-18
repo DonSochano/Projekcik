@@ -9,14 +9,14 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KafkaMessege {
+public class KafkaMessage {
+
     private Long id;
     private Integer lineNumber;
     private String name;
     private String lastName;
-    private Integer Age;
+    private Integer age;
     private Double salary;
     private String town;
-
 
 }
