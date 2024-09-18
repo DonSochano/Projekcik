@@ -1,24 +1,27 @@
 package org.example.projekcik1;
 
 
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.Text;
 
+@RequiredArgsConstructor
 @Service
 public class KafkaConsumer {
 
-    @Autowired // ...
-    FileTextRepository textRepository; // private final
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
+    private final FileTextRepository textRepository;
+    private final FileRepository fileRepository;
 
-// tu jeden enter za duzo
     @KafkaListener(topics = "fileLineTopic", groupId = "group_id")
     public void consume(KafkaMessege message) {
-        //slf4j
-        System.out.println("Odebrano wiadomość: " +"ID: " +message.getId() +"linenumber: " +message.getLineNumber()+"name: " + message.getName()+"name: " +message.getLastName()+"lastname: " +message.getAge()+"Salary: " +message.getSalary()+"Town: " +message.getTown() );
+
+        logger.info("Odebrano wiadomość: ID: {}, linenumber: {}, name: {}, lastname: {}, age: {}, salary: {}, town: {}",
+                message.getId(), message.getLineNumber(), message.getName(), message.getLastName(), message.getAge(), message.getSalary(), message.getTown());
         LineClass newLine = new LineClass();
+        newLine.setLineID(message.getId() + message.getLineNumber() + message.getAge());
         newLine.setFileId(message.getId());
         newLine.setLineNumber(message.getLineNumber());
         newLine.setName(message.getName());

@@ -1,23 +1,24 @@
 package org.example.projekcik1;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.time.LocalDate;
 
+@RequiredArgsConstructor
 @Component
 public class FileScheduler {
-    @Autowired // ...
-    FileRepository entityRepository;
-    @Autowired // ... entery
-    EventProducer eventProducer;
+
+
+    private final FileRepository entityRepository;
+    private final EventProducer eventProducer;
+
     public static final String eventMessage = "MoveFromNew";
 
-
     @Scheduled(fixedRate = 10000)
-    public void Scheduler() { // metody z małej !
+    public void scheduler() {
         File folder = new File("src/main/resources/new");
         File[] files = folder.listFiles();
         if (files != null) {
@@ -27,7 +28,9 @@ public class FileScheduler {
                 entityRepository.flush();
                 System.out.println("Znaleziono nowy plik: " + file.getName());
                 File file1 = new File("src/main/resources/new/" + newFile.getId().toString() + ".csv");
-                file.renameTo(file1); // nw czego to jest ignored, coś tu jest nie tak ale to jak poprawisz to bedziemy pracować dalej
+                if (!file.renameTo(file1)) {
+                    System.out.println("Zmiana nazwy nie powiodła się");
+                }
                 eventProducer.produceEvent(new Event(eventMessage, file1.getName()));
             }
         }

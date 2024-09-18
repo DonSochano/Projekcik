@@ -19,7 +19,7 @@ public class KafkaConfig {
     @Bean
     public ProducerFactory<String, KafkaMessege> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
-        // stylowanie kodu metod: najpierw zmienne metody, linijka przerwy, operacje, linijak przerwy, return - ZASTOSOWAĆ WSZEDZIE
+
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);

@@ -1,11 +1,15 @@
 package org.example.projekcik1;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class KafkaMessege{
+@NoArgsConstructor
+@AllArgsConstructor
+public class KafkaMessege {
     private Long id;
     private Integer lineNumber;
     private String name;
@@ -13,16 +17,6 @@ public class KafkaMessege{
     private Integer Age;
     private Double salary;
     private String town;
-    public KafkaMessege(){} // @NoArgsConstructor
 
-    //allargsconstructor
-    public KafkaMessege(Long id, Integer lineNumber, String name, String lastName, Integer Age, Double salary, String town){
-        this.id = id;
-        this.lineNumber = lineNumber;
-        this.name = name;
-        this.lastName = lastName;
-        this.Age = Age;
-        this.salary = salary;
-        this.town = town;
-    }
+
 }

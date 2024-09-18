@@ -1,37 +1,35 @@
 package org.example.projekcik1;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
 public class LineClass {
-    private Integer LineNumber;
-    private Long fileId;
-    private String Name;
-    private String lastName;
-    private Integer Age; // pola z małej kurwa ! WSZĘDZIE !!!!!!!!!!!
-    private Double Salary;
-    private String Town;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long LineID; // ID zawsze na górze !!!!!!!!!!!!!!!! i z małej !!!!!!!11
+    private Long LineID;
+    private Integer lineNumber;
+    private Long fileId;
+    private String name;
+    private String lastName;
+    private Integer age;
+    private Double salary;
+    private String town;
 
 
-
-public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, int Age, Double Salary, String Town) { // nie uzywane wiec po co ?
-    this.LineNumber = LineNumber;
-    this.fileId = fileId;
-    this.Name = Name;
-    this.lastName = lastName;
-    this.Age = Age;
-    this.Salary = Salary;
-    this.Town = Town;
-}
-public LineClass() {} // noArgsConstructor
+    public LineClass(Integer LineNumber, Long fileId, String Name, String lastName, int Age, Double Salary, String Town) { // nie uzywane wiec po co ?
+        this.lineNumber = LineNumber;
+        this.fileId = fileId;
+        this.name = Name;
+        this.lastName = lastName;
+        this.age = Age;
+        this.salary = Salary;
+        this.town = Town;
+    }
 }

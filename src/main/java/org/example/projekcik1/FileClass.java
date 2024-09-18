@@ -2,33 +2,29 @@ package org.example.projekcik1;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "files")
 public class FileClass {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id; // jak getter i setter to to powinno byc raczej prywatne, tak jak i wszystkie pola tej klasy
-    String fileName;
-    // entery pomiedzy polami !
-    LocalDate detectionTime;
-    Long fileSize;
+    private Long id;
+    private String fileName;
+    private LocalDate detectionTime;
+    private Long fileSize;
+    private Integer linesAmount;
 
-public FileClass(String fileName, LocalDate detectionTime, Long fileSize) {
-    this.fileName = fileName;
-    this.detectionTime = detectionTime;
-    this.fileSize = fileSize;
-}
-    public FileClass(LocalDate detectionTime, Long fileSize) { // nie uzywany konstruktor ? po co
+    public FileClass(String fileName, LocalDate detectionTime, Long fileSize) {
         this.fileName = fileName;
         this.detectionTime = detectionTime;
+        this.fileSize = fileSize;
     }
-
-    public FileClass() {} // adnotacja NoArgsConstruktor i to do smieci
-
 }
