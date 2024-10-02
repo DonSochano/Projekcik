@@ -1,4 +1,4 @@
-package org.example.projekcik1.Components;
+package org.example.models;
 
 public interface CustomEvent {
 

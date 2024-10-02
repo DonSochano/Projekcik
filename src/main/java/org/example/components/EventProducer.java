@@ -1,6 +1,7 @@
-package org.example.projekcik1.Components;
+package org.example.components;
 
 import lombok.RequiredArgsConstructor;
+import org.example.models.CustomEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 

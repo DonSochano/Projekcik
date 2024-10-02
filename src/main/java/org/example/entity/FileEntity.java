@@ -1,4 +1,4 @@
-package org.example.projekcik1.Entity;
+package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "files")
-public class FileClass {
+public class FileEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class FileClass {
     private Long fileSize;
     private Integer linesAmount;
 
-    public FileClass(String fileName, LocalDate detectionTime, Long fileSize) {
+    public FileEntity(String fileName, LocalDate detectionTime, Long fileSize) {
         this.fileName = fileName;
         this.detectionTime = detectionTime;
         this.fileSize = fileSize;

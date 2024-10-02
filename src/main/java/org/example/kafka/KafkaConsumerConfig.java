@@ -1,4 +1,4 @@
-package org.example.projekcik1.Kafka;
+package org.example.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -18,8 +18,8 @@ public class KafkaConsumerConfig {
     public ConsumerFactory<String, KafkaMessage> consumerFactory() {
         Map<String, Object> configProps = new HashMap<>(); // to samo co w KafkaConfig, zasadniczo wszędzie
 
-        configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
+        configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092"); // to wyjebać do application.properties i za pomocą @Value wyciągnąc w parametrze metody
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id"); // jw
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");

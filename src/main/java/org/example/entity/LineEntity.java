@@ -1,8 +1,7 @@
-package org.example.projekcik1.Entity;
+package org.example.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,10 +10,11 @@ import lombok.Setter;
 @Getter
 @Entity
 @NoArgsConstructor
-public class LineClass {
+public class LineEntity {
 
     @Id
     private Long lineID;
+
     private Integer lineNumber;
     private Long fileId;
     private String name;

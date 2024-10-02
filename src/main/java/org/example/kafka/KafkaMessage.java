@@ -1,15 +1,16 @@
-package org.example.projekcik1.Kafka;
+package org.example.kafka;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.models.TopicMessage;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KafkaMessage {
+public class KafkaMessage implements TopicMessage { // do zmiany nazwa opisana gdzie indziej
 
     private Long id;
     private Integer lineNumber;

@@ -1,4 +1,4 @@
-package org.example.projekcik1.Kafka; // nazwy pakietów zawsze z małej
+package org.example.kafka; // nazwy pakietów zawsze z małej
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

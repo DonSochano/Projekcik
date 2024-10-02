@@ -1,9 +1,10 @@
-package org.example.projekcik1.Components;
+package org.example.components;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.projekcik1.Entity.FileClass;
-import org.example.projekcik1.Repository.FileRepository;
+import org.example.entity.FileEntity;
+import org.example.models.Event;
+import org.example.repository.FileRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class FileScheduler {
+public class FileScheduler { // to będzie nipotrzebne raczej
 
     public static final String eventMessage = "MoveFromNew";
 
@@ -26,7 +27,7 @@ public class FileScheduler {
         File[] files = folder.listFiles();
         if (files != null) {
             for (File file : files) {
-                FileClass newFile = new FileClass(file.getName(), LocalDate.now(), file.length());
+                FileEntity newFile = new FileEntity(file.getName(), LocalDate.now(), file.length());
                 entityRepository.save(newFile);
                 entityRepository.flush();
                 log.info("Znaleziono nowy plik: " + file.getName());
