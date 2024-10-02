@@ -1,4 +1,4 @@
-package org.example.projekcik1;
+package org.example.projekcik1.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

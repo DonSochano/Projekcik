@@ -1,5 +1,6 @@
-package org.example.projekcik1;
+package org.example.projekcik1.Repository;
 
+import org.example.projekcik1.Entity.LineClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

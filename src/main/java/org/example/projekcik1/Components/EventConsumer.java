@@ -1,4 +1,4 @@
-package org.example.projekcik1;
+package org.example.projekcik1.Components;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

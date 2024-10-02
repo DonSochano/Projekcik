@@ -1,4 +1,4 @@
-package org.example.projekcik1;
+package org.example.projekcik1.Kafka;
 
 
 import lombok.RequiredArgsConstructor;
