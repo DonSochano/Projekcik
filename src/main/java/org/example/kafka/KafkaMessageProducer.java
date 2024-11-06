@@ -2,8 +2,6 @@ package org.example.kafka;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.models.Topic;
-import org.example.models.TopicMessage;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 
@@ -20,8 +18,7 @@ public abstract class KafkaMessageProducer<M extends TopicMessage,T  extends Top
 
     public final CompletableFuture<SendResult<String, M>> send(M message){
         var result = kafkaTemplate.send(topic.getName(), message);
-        log("["+ topic.getName()+"]" + ": Produced message: " + message.toString());
-        
+
         return result;
     }
 

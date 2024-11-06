@@ -1,13 +1,14 @@
 package org.example.kafka;
 
 import lombok.NoArgsConstructor;
-import org.example.models.Topic;
+import org.springframework.stereotype.Component;
 
+@Component
 @NoArgsConstructor
-public class FileLineTopic implements Topic<KafkaMessage> {
+public class FileLineTopic implements Topic<LineDTO> {
 
     @Override
     public final String getName() {
-        return "fileLineTopic";
+        return "lineDTOTopic";
     }
 }
